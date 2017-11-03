@@ -12,5 +12,5 @@ ENV EXTENSION war
 ENV WARFILE iplus-web.war
 
 RUN set -x && \
-    (curl L -v "http://$NEXUSHOST:$NEXUSPORT/nexus/service/local/artifact/maven/redirect?r=$REPO&g=$GROUP&a=$ARTIFACT&v=$VERSION&e=$EXTENSION" -o /deployments/$WARFILE)
+    (curl -L -v "http://$NEXUSHOST:$NEXUSPORT/nexus/service/local/artifact/maven/redirect?r=$REPO&g=$GROUP&a=$ARTIFACT&v=$VERSION&e=$EXTENSION" -o /deployments/$WARFILE)
 RUN echo "[ejlp12] Done..."
