@@ -11,7 +11,8 @@ ENV VERSION 2.10.1-RELEASE
 ENV EXTENSION war
 ENV WARFILE iplus-web.war
 
-RUN curl -v http://$NEXUSHOST:$NEXUSPORT/nexus/service/local/artifact/maven/redirect?r=$REPO&g=$GROUP&a=$ARTIFACT&v=$VERSION&e=$EXTENSION" -o /deployments/$WARFILE
+RUN set -x && \
+    (curl -v http://$NEXUSHOST:$NEXUSPORT/nexus/service/local/artifact/maven/redirect?r=$REPO&g=$GROUP&a=$ARTIFACT&v=$VERSION&e=$EXTENSION" -o /deployments/$WARFILE)
 
 
 CMD $STI_SCRIPTS_PATH/usage
